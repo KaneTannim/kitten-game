@@ -50,8 +50,6 @@ unlock_all_buildings();
 research_everything();
 trillion_of_everything();
 
-window.location.reload();
-
 
 window.LCstorage = window.localStorage;
 if (document.all && !window.localStorage) {
