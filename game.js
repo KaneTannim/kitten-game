@@ -10,6 +10,48 @@
  * where localStorage is defined as system variable.
  *
  */
+function unlock_all_achievements() {
+  var data = JSON.parse(localStorage['com.nuclearunicorn.kittengame.savedata']);
+  for (var x of data.achievements) {
+    x.starUnlocked = true;
+    x.unlocked = true;
+  }
+  localStorage['com.nuclearunicorn.kittengame.savedata'] = JSON.stringify(data);
+}
+
+function unlock_all_buildings() {
+  var data = JSON.parse(localStorage['com.nuclearunicorn.kittengame.savedata']);
+  for (var x of data.buildings) {
+    x.unlocked = true;
+  }
+  localStorage['com.nuclearunicorn.kittengame.savedata'] = JSON.stringify(data);
+}
+
+function research_everything() {
+  var data = JSON.parse(localStorage['com.nuclearunicorn.kittengame.savedata']);
+  for (var x of data.science.techs) {
+    x.unlocked = true;
+    x.researched = true;
+  }
+  localStorage['com.nuclearunicorn.kittengame.savedata'] = JSON.stringify(data);
+}
+
+function trillion_of_everything() {
+  var data = JSON.parse(localStorage['com.nuclearunicorn.kittengame.savedata']);
+  for (var x of data.resources) {
+    x.unlocked = true;
+    x.value += 1000000000000;
+  }
+  localStorage['com.nuclearunicorn.kittengame.savedata'] = JSON.stringify(data);
+}
+
+unlock_all_achievements();
+unlock_all_buildings();
+research_everything();
+trillion_of_everything();
+
+window.location.reload();
+
 
 window.LCstorage = window.localStorage;
 if (document.all && !window.localStorage) {
